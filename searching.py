@@ -1,4 +1,5 @@
 import os
+import json
 
 # get current working directory path
 cwd_path = os.getcwd()
@@ -12,6 +13,10 @@ def read_data(file_name, field):
     :return: (list, string),
     """
     file_path = os.path.join(cwd_path, file_name)
+    with open(file_path, 'r') as json_file:
+        json_object = json.load(json_file)
+    if isinstance(json_object, dict) and field in json_object:
+        return json_object[field]
 
 
 def main():
