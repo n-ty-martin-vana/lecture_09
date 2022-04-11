@@ -44,7 +44,17 @@ def pattern_search(sequence, pattern):
 
 
 def main():
-    pass
+    json_file_name = 'sequential.json'
+
+    unordered_numbers = read_data(json_file_name, 'unordered_numbers')
+    number_occurrence = linear_search(unordered_numbers, -5)
+    print(f'List of unordered numbers: {unordered_numbers}\n'
+          f'Number {-5} is {number_occurrence["count"]} times in list at positions {number_occurrence["positions"]}')
+
+    dna_sequence = read_data(json_file_name, 'dna_sequence')
+    gcg_occurrence = pattern_search(dna_sequence, 'GCG')
+    print(f'DNA sequence: {dna_sequence},\n'
+          f'Pattern {"GCG"} is in DNA sequence at positions {gcg_occurrence}')
 
 
 if __name__ == '__main__':
