@@ -33,6 +33,16 @@ def linear_search(haystack, needle):
     return needle_occurrence
 
 
+def pattern_search(sequence, pattern):
+    pattern_occurrence = []
+
+    for i in range(len(sequence) - len(pattern) + 1):
+        if sequence[i: i + len(pattern)] == pattern:
+            pattern_occurrence.append(i)
+
+    return set(pattern_occurrence)
+
+
 def main():
     pass
 
