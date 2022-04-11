@@ -50,6 +50,21 @@ def pattern_search(sequence, pattern):
     return pattern_occurrence
 
 
+def binary_search(sorted_list, founded):
+    left = 0
+    right = len(sorted_list) - 1
+    pivot = len(sorted_list) // 2
+
+    while left <= right:
+        pivot = (left + right) // 2
+        if founded == sorted_list[pivot]:
+            return pivot
+        elif founded > sorted_list[pivot]:
+            left = pivot + 1
+        else:
+            right = pivot
+
+
 def main():
     json_file_name = 'sequential.json'
 
@@ -62,6 +77,11 @@ def main():
     gcg_occurrence = pattern_search(dna_sequence, 'GCG')
     print(f'DNA sequence: {dna_sequence},\n'
           f'Pattern {"GCG"} is in DNA sequence at positions {gcg_occurrence}')
+
+    sorted_numbers = read_data(json_file_name, 'ordered_numbers')
+    num_index = binary_search(sorted_numbers, -51)
+    print(f'List of sorted numbers: {sorted_numbers}\n'
+          f'Founded number {-51} is in index {num_index}')
 
 
 if __name__ == '__main__':
