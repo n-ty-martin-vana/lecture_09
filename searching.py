@@ -19,6 +19,20 @@ def read_data(file_name, field):
         return json_object[field]
 
 
+def linear_search(haystack, needle):
+    needle_occurrence = {
+        'positions': [],
+        'count': 0
+    }
+
+    for i in range(len(haystack)):
+        if haystack[i] == needle:
+            needle_occurrence['positions'].append(i)
+            needle_occurrence['count'] += 1
+
+    return needle_occurrence
+
+
 def main():
     pass
 
